@@ -49,7 +49,7 @@
         </div>
         <div class="container">
             <div class="card card-login">
-                <h2>Olá de volta!</h2>
+                <h2>Que bom ter você de volta!</h2><br><br>
                 <div class="formulario">
                     <div class="campo">
                         <span>E-mail:</span>
@@ -106,8 +106,8 @@
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
+        fetch("/user/autenticar", {
+            method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
