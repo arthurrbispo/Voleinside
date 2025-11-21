@@ -1,6 +1,6 @@
 var userModel = require("../models/userModel.js");
 
-function listar(req, res) {
+function logar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
@@ -10,7 +10,7 @@ function listar(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        userModel.listar().then(function (resultado) {
+        userModel.logar().then(function (resultado) {
             // precisamos informar que o resultado voltará para o front-end como uma resposta em json
             res.status(200).json(resultado);
         }).catch(function (erro) {
@@ -54,6 +54,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-    listar,
+    logar,
     cadastrar
 }

@@ -201,9 +201,9 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome) {
+function cadastrar() {
     var instrucao = `
-        INSERT INTO carro (nome) VALUES ('${nome}');
+        INSERT INTO questionario (setJogo, ptnSofridos, pntGanhos, pntProprios, dtJogo) VALUES ('${axData}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

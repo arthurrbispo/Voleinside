@@ -79,15 +79,16 @@ body {
 
 .banner {
   height: var(--tamanho-banner);
-  color: #0B1E3F;
+  color: #F2E9E4;
   background-image: url('../assets/imgs/voleinside/background.png');
   background-size: cover;
 }
 
 .banner .container {
-  justify-content:start;
-  align-items:center;
+  justify-content: start;
+  align-items: center;
   height: 100%;
+  color: #0B1E3F;
 }
 
 .banner .container p {
@@ -101,23 +102,53 @@ body {
   font-weight: 800;
 }
 
-/* MISSÃO VISÃO VALORES */
+/* SOBRE */
 
 .social {
   background-color: #F2E9E4;
-
 }
 
 .social .container {
   justify-content: center;
 }
 
-.box img {
-  width: 170px;
+.boxes {
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.social .container .boxes {
+.box {
+  background-color: #0B1E3F;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  height: 450px;
+}
 
+.box .img {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 10px;
+  transition: 3s;
+}
+
+.box .img img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  transition: 3s;
+}
+
+.box .img .text {
+  color: #F2E9E4;
+  font-size: 20px;
+}
+
+
+.social .container .boxes {
   justify-content: space-between;
   width: 100%;
   padding: 30px 0;
@@ -128,7 +159,7 @@ body {
 }
 
 .box {
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -155,11 +186,11 @@ body {
 
 .login {
   height: var(--tamanho-login);
-  background-image: url('../assets/imgs/voleinside/voleinsideLOGIN.png');
+  background-image: url('../assets/imgs/voleinside/voleinside.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-attachment: fixed;   
+  background-attachment: fixed;
 }
 
 .login .container {
@@ -206,10 +237,10 @@ body {
   border-bottom: 3px solid #0B1E3F;
   outline: none;
   transition: 0.1s;
-  text-align:start;
+  text-align: start;
   margin: 0;
-  background-color:#F2E9E4;
-  border-radius:0px;
+  background-color: #F2E9E4;
+  border-radius: 0px;
 }
 
 .formulario input:focus {
@@ -245,7 +276,7 @@ body {
 .confirma {
   color: #0B1E3F;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: center;
   font-size: 15px;
   font-weight: 400;
@@ -261,6 +292,7 @@ body {
 .confirma a:hover {
   color: #FF5500;
 }
+
 .botao {
   cursor: pointer;
   font-family: "archivo", sans-serif;

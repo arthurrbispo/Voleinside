@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo - Quiz</title>
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon" href="./assets/imgs/voleinside/Icon/Logo-_FF5500.ico" />
+</head>
+
+
+
+<body><br>
+    Quando a data do jogo?
+    <input type="date" name="" id="iptResposta1"><br>
+    <div id="divData"></div><br>
+    Selecione o SET:
+    <select name="" id="slctSet">
+        <option value="#">Selecione...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select><br>
+    <div id="divSet"></div><br>
+    Quantos pontos sua dupla fez?<br>
+    <input type="number" name="" id="iptResposta2"><br>
+    <div id="divPontosFeitos"></div><br>
+    Quantos pontos vocês sofreram?<br>
+    <input type="number" name="" id="iptResposta3"><br>
+    <div id="divPontosSofridos"></div><br>
+    Quantos pontos <b>você</b> fez?<br>
+    <input type="number" name="" id="iptResposta4"><br>
+    <div id="divPontosProprios"></div><br>
+    <button onclick="validar()">Verificar estatisticas!</button>
+    <div id="mensagem_erro"></div>
+
+</html>
+<script>
+    let axData = 0;
+    let axSet = 0;
+    let axPontosFeitos = 0;
+    let axPontosSofridos = 0;
+    let axPontosProprios = 0;
+
+
+
+    function validar() {
+        axData = iptResposta1.value;
+        axSet = slctSet.value;
+        axPontosFeitos = iptResposta2.value;
+        axPontosSofridos = iptResposta3.value;
+        axPontosProprios = iptResposta4.value;
+        let validar = false;
+
+        if (axData == "") {
+            divData.innerHTML = "Insira uma data válida";
+            validar = true;
+        } if (axSet == "#") {
+            divSet.innerHTML = "Selecione um SET";
+            validar = true;
+        } if (iptResposta2.value == "" || axPontosFeitos < 0 || axPontosFeitos > 50) {
+            divPontosFeitos.innerHTML = "Insira pontos válidos";
+            validar = true;
+        } if (iptResposta3.value == "" || axPontosSofridos < 0 || axPontosSofridos > 50) {
+            divPontosSofridos.innerHTML = "Insira pontos válidos";
+            validar = true;
+        } if (iptResposta3.value == "" || axPontosProprios < 0 || axPontosProprios > 50 || axPontosProprios > axPontosFeitos) {
+            divPontosProprios.innerHTML = "Insira pontos válidos";
+            validar = true;
+        } if (!validar) {
+            iptResposta1.value ="";
+            slctSet.value = "#";
+            iptResposta2.value = "";
+            iptResposta3.value = "";
+            iptResposta4.value = "";
+            cadastrar()
+
+        }
+    }
+
+    
+
+function cadastrar() {
+    fetch("/questionario/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            dataServer: axData,
+            setServer: axSet,
+            pontosFeitosServer: axPontosFeitos,
+            pontosSofridosServer: axPontosSofridos,
+            pontosPropriosServer: axPontosProprios,
+        }),
+    })
+    .then(function (resposta) {
+        console.log("resposta: ", resposta);
+        
+        if (resposta.ok) {
+            // CORREÇÃO: Use getElementById para acessar elementos
+            document.getElementById("mensagem_erro").innerHTML = 
+                "Dados coletados! Redirecionando para a Dashboard...";
+            
+            setTimeout(() => {
+                window.location = "dashboard.html";
+            }, 2000);
+        } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+    })
+    .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+        // CORREÇÃO: Mostrar erro na tela
+        document.getElementById("mensagem_erro").innerHTML = 
+            "Erro ao cadastrar: " + erro;
+    });
+}
+
+
+</script>
+
+
+
+
