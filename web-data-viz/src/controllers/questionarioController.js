@@ -18,12 +18,12 @@ function cadastrar(req, res) {
     var axPontosProprios = req.body.pontosPropriosServer;
 
     console.log("Dados recebidos no controller:", {
-        idUsuario: axIdUsuario,
         data: axData,
         set: axSet,
         pontosFeitos: axPontosFeitos,
         pontosSofridos: axPontosSofridos,
-        pontosProprios: axPontosProprios
+        pontosProprios: axPontosProprios,
+        idUsuario: axIdUsuario,
     });
 
 
@@ -49,12 +49,12 @@ function cadastrar(req, res) {
     }
 
     questionarioModel.cadastrar(
-        axIdUsuario,
         axSet, 
         axPontosSofridos, 
         axPontosFeitos, 
         axPontosProprios, 
-        axData
+        axData,
+        axIdUsuario
     )
     .then(function(resposta){
         console.log("Cadastro realizado com sucesso:", resposta);
