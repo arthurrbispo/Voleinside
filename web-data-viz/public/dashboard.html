@@ -89,14 +89,14 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idQuestionario, idUsuario) {
+    function obterDadosGrafico(idRegistro) {
 
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
 
-        fetch(`/medidas/ultimas/${idQuestionario}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/ultimas/${idRegistro}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
