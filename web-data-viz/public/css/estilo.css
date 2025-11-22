@@ -241,10 +241,6 @@ body {
   border-radius: 0px;
 }
 
-.formulario input:focus {
-  border: 3px solid #FF5500;
-  border-radius: 5px;
-}
 
 .formulario input::placeholder {
   color: #0B1E3F;
