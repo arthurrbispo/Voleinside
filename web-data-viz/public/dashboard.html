@@ -76,6 +76,7 @@
     function nome() {
         var nomeUser = sessionStorage.NOME_USUARIO;
         b_usuario.innerHTML = nomeUser;
+        var idUsuario = sessionStorage.ID_USUARIO;
     }
     // O gráfico é construído com três funções:
     // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -88,9 +89,8 @@
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
-    function obterDadosGrafico(idQuestionario) {
+    function obterDadosGrafico(idQuestionario, idUsuario) {
 
-        alterarTitulo(idQuestionario)
 
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);

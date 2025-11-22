@@ -127,16 +127,15 @@ body {
   height: 450px;
 }
 
-.box .img {
+
+
+.box img {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  justify-content: space-between;
   border-radius: 10px;
   transition: 3s;
-}
-
-.box .img img {
-  width: 100%;
+  width: 360px;
   height: 420px;
   object-fit: cover;
   transition: 3s;
