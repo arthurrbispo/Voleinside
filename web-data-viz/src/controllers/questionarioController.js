@@ -10,6 +10,7 @@ function listar(req, res) {
 }
 
 function cadastrar(req, res) {
+    var axIdUsuario = req.body.idUsuarioServer;
     var axData = req.body.dataServer;
     var axSet = req.body.setServer;
     var axPontosFeitos = req.body.pontosFeitosServer;
@@ -17,6 +18,7 @@ function cadastrar(req, res) {
     var axPontosProprios = req.body.pontosPropriosServer;
 
     console.log("Dados recebidos no controller:", {
+        idUsuario: axIdUsuario,
         data: axData,
         set: axSet,
         pontosFeitos: axPontosFeitos,
@@ -24,7 +26,7 @@ function cadastrar(req, res) {
         pontosProprios: axPontosProprios
     });
 
-    
+
     if (axData == undefined) {
         res.status(400).send("Sua data está undefined!");
         return;
@@ -47,6 +49,7 @@ function cadastrar(req, res) {
     }
 
     questionarioModel.cadastrar(
+        axIdUsuario,
         axSet, 
         axPontosSofridos, 
         axPontosFeitos, 
