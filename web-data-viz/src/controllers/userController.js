@@ -10,12 +10,16 @@ function logar(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        userModel.logar().then(function (resultado) {
-            // precisamos informar que o resultado voltará para o front-end como uma resposta em json
-            res.status(200).json(resultado);
+        userModel.logar(email, senha).then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado[0]);
+            } else {
+                res.status(403).send("Email ou senha inválidos!");
+            }
+
         }).catch(function (erro) {
             res.status(500).json(erro.sqlMessage);
-        })
+        });
     }
 }
 

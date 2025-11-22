@@ -11,9 +11,12 @@ function listar() {
 function cadastrar(axSet, axPontosSofridos, axPontosFeitos, axPontosProprios, axData) {
     var instrucaoSql = `
         INSERT INTO questionario 
-        (setJogo, ptnSofridos, pntGanhos, pntProprios, dtJogo) 
+        (setJogo, pntSofridos, pntGanhos, pntProprios, dtJogo) 
         VALUES ('${axSet}', '${axPontosSofridos}', '${axPontosFeitos}', '${axPontosProprios}', '${axData}');
     `;
+
+    var instrucaoSql2 = `
+    INSERT INTO registro (idQuestionario)`
     
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

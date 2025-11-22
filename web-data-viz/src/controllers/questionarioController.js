@@ -24,7 +24,7 @@ function cadastrar(req, res) {
         pontosProprios: axPontosProprios
     });
 
-    // Validações...
+    
     if (axData == undefined) {
         res.status(400).send("Sua data está undefined!");
         return;
