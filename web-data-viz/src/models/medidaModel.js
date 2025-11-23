@@ -7,7 +7,10 @@ function buscarUltimasMedidas(idUsuario, limite_linhas) {
         q.setJogo,
         q.pntProprios AS pontosProprios,
         TRUNCATE(q.pntGanhos / (q.pntSofridos + q.pntGanhos) * 100, 1) AS aproveitTotal,
-        TRUNCATE(q.pntProprios / (q.pntSofridos + q.pntGanhos) * 100, 1) AS aprovetProprio
+        TRUNCATE(q.pntProprios / (q.pntSofridos + q.pntGanhos) * 100, 1) AS aprovetProprio,
+        q.pntGanhos AS pontosDupla,
+        q.pntSofridos AS pontosSofridos,
+        r.idRegistro AS idRegistro
     FROM questionario q
     JOIN registro r ON q.idQuestionario = r.idQuestionario
     JOIN usuario u  ON u.idUsuario = r.idUsuario

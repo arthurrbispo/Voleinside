@@ -56,20 +56,20 @@
             <div class="kpi">
                 <div class="kpi-box">
                     <div class="kpi-text">Sua dupla</div>
-                    <div class="kpi-value">VENCEU</div>
+                    <div class="kpi-value" id="statusJogo"></div>
                     <div class="kpi-text">o jogo.</div>
                 </div>
                 <div class="kpi-box">
                     <div class="kpi-text">Aproveitamento da dupla</div>
-                    <div class="kpi-value">20%</div>
+                    <div class="kpi-value" id="aproveitDupla"></div>
                 </div>
                 <div class="kpi-box">
                     <div class="kpi-text">Aproveitamento individual</div>
-                    <div class="kpi-value">50%</div>
+                    <div class="kpi-value" id="aproveitSolo"></div>
                 </div>
                 <div class="kpi-box">
                     <div class="kpi-text">Seus pontos na ultima partida</div>
-                    <div class="kpi-value">15</div>
+                    <div class="kpi-value" id="pontosSolo"></div>
                 </div>
             </div>
 
@@ -125,7 +125,8 @@
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
                         plotarGraficoPontos(resposta);
-                        plotarGraficoAproveitamento(resposta)
+                        plotarGraficoAproveitamento(resposta);
+                        plotarKPI(resposta);
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
@@ -140,7 +141,21 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+
+function plotarKPI(resposta) {
+    aproveitDupla.innerHTML = `${resposta[0].aproveitTotal}%`;
+    aproveitSolo.innerHTML = `${resposta[0].aprovetProprio}%`;
+    pontosSolo.innerHTML = `${resposta[0].pontosProprios}`;
+
+    if ((resposta[0].pontosDupla == 21 && (resposta[0].setJogo == 1 || resposta[0].setJogo == 2)) || (resposta[0].setJogo == 3 && resposta[0].pontosDupla > resposta[0].pontosSofridos)) {
+        statusJogo.innerHTML = `<span style="color: green;">VENCEU</span>`
+    } else {
+        statusJogo.innerHTML = `<span style="color: red;">PERDEU</span>`
+    }
+}
+
 function plotarGraficoPontos(resposta) {
+
 
     console.log('Iniciando plotagem do gráfico de PONTOS...');
 
