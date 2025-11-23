@@ -161,17 +161,17 @@ body {
   align-items: center;
 }
 
-/* FOOTER */
 
-/* .footer {
-  background-color: #32b9cd;
-  height: 150px;
-  color: #fff;
+.footer {
+  background-color: transparent;
+  height: 100px;
+  color: #0B1E3F;
   display: flex;
   font-size: 15px;
-} */
+  text-align: center;
+}
 
-.footer .container {
+ .footer .container {
   justify-content: center;
   text-align: center;
 }
@@ -180,7 +180,7 @@ body {
   font-size: 12px;
 }
 
-/* LOGIN */
+ /* LOGIN */
 
 .login {
   height: var(--tamanho-login);
@@ -208,7 +208,6 @@ body {
   height: fit-content;
   padding: 20px 0;
   background-color: #F2E9E4;
-  /* box-shadow: 0 0 2px #0B1E3F; */
 }
 
 .card h2 {
@@ -222,84 +221,6 @@ body {
   width: 80%;
   justify-content: space-around;
   flex-direction: column;
-}
-
-
-.questionario {
-  display: flex;
-  justify-content: center;
-  padding: 3% 5%;
-  background-color: #F2E9E4;
-}
-
-.quest-inputs {
-  width: 100%;
-  max-width: 480px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.quest-title{
-  color: #0B1E3F;
-  font-size: 120%;
-  font-weight: 600;
-}
-
-.quest-title h2 span {
-  font-weight: 800;
-  color: #FF5500;
-}
-
-.quest-inputs input {
-  border: none;
-  border-bottom: 3px solid #0B1E3F;
-  outline: none;
-  transition: 0.1s;
-  margin: 0;
-  background-color: #F2E9E4;
-  border-radius: 0px;
-}
-
-
-.questionario input::placeholder {
-  color: #0B1E3F;
-  opacity: 0.5;
-  font-size: 14px;
-  text-align: left;
-  padding: 0px;
-  text-align: center;
-}
-
-.questionario select {
-  border: none;
-  border-bottom: 3px solid #0B1E3F;
-  background-color: #F2E9E4;
-  color: #0B1E3F;
-  height: 36px;
-  text-align: center;
-  border-radius: 0px;
-  margin: 0;
-}
-
-.questionario button {
-  cursor: pointer;
-  font-family: "archivo", sans-serif;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 22px;
-  color: #fff;
-  background-color: #FF5500;
-  width: 350px;
-  height: 40px;
-  align-self: center;
-  margin-top: 20px;
-  transition: 0.5s;
-}
-
-.questionario button:hover {
-  background-color: #ff7232;
 }
 
 .campo {
@@ -397,13 +318,6 @@ body {
   flex-direction: column;
 }
 
-input {
-  margin-bottom: 10px;
-  border: 2px solid #32b9cd;
-  padding: 10px;
-  text-align: center;
-  border-radius: 10px;
-}
 
 .btn {
   font-family: "archivo", sans-serif;
@@ -430,17 +344,92 @@ input {
   width: 50px;
 }
 
-/* SIMULADOR */
+/* QUESTIONARIO */
 
-.simulador {
-  color: white;
-}
-
-.simulador .container {
+.questionario {
+  display: flex;
   flex-direction: column;
-  overflow: scroll;
-  height: var(--tamanho-simulador);
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3%;
 }
+
+.quest-title {
+  color: #0B1E3F;
+  font-size: 120%;
+  font-weight: 600;
+}
+
+.quest-title h2 span {
+  font-weight: 800;
+  color: #FF5500;
+}
+
+.quest-input {
+  margin: 18px 100px; 
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quest-input span{
+  color: #0B1E3F;
+  font-size: 20px;
+  font-weight:400 ;
+}
+
+.quest-inputs input,
+.questionario select {
+  background-color: #F2E9E4;
+  border: none;
+  border-bottom: 3px solid #0B1E3F;
+  margin: 0;
+  color: #0B1E3F;
+  border-radius: 0;
+  font-size: 20px;
+  text-align:center;
+}
+
+.questionario input::placeholder {
+  color: #0B1E3F;
+  opacity: 0.5;
+  font-size: 14px;
+  text-align:center;
+
+}
+
+.questionario select {
+  height: 36px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.questionario button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 22px;
+  color: #fff;
+  background-color: #FF5500;
+  width: 350px;
+  height: 40px;
+  align-self: center;
+  margin-top: 20px;
+  transition: 0.5s;
+}
+
+.questionario button:hover {
+  background-color: #ff7232;
+}
+
+.quest-erro {
+  color: red;
+  font-size: 13px;
+  height: 14px;
+}
+
 
 /* ALERTA */
 
