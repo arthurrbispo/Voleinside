@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo - Quiz</title>
+    <title>Vôleinside | Questionário</title>
     <link rel="stylesheet" href="./css/estilo.css">
     <link rel="icon" href="./assets/imgs/voleinside/Icon/Logo-_FF5500.ico" />
 </head>
@@ -33,29 +33,54 @@
             </ul>
         </div>
     </div>
-    Quando a data do jogo?
-    <input type="date" name="" id="iptResposta1"><br>
-    <div id="divData"></div><br>
-    Selecione o SET:
-    <select name="" id="slctSet">
-        <option value="#">Selecione...</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-    </select><br>
-    <div id="divSet"></div><br>
-    Quantos pontos sua dupla fez?<br>
-    <input type="number" name="" id="iptResposta2"><br>
-    <div id="divPontosFeitos"></div><br>
-    Quantos pontos vocês sofreram?<br>
-    <input type="number" name="" id="iptResposta3"><br>
-    <div id="divPontosSofridos"></div><br>
-    Quantos pontos <b>você</b> fez?<br>
-    <input type="number" name="" id="iptResposta4"><br>
-    <div id="divPontosProprios"></div><br>
-    <button onclick="validar()">Verificar estatisticas!</button>
-    <div id="mensagem_erro"></div>
 
+    <div class="questionario">
+        <div class="quest-inputs">
+            <div class="quest-title">
+                <h2>Preencha os campos e <span>descubre suas estatisticas</span>!</h2>
+            </div>
+            <div class="quest-input">
+                <span>Que dia foi o jogo?</span>
+                <input type="date" name="" id="iptResposta1">
+                <div class="quest-erro" id="divData"></div>
+            </div>
+            <div class="quest-input">
+                <span>Selecione o SET:</span>
+                <select name="" id="slctSet">
+                    <option value="#">Selecione...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <div id="divSet"></div>
+            </div>
+            <div class="quest-input">
+                <span>Quantos pontos sua dupla fez?</span>
+                <input placeholder="Insira aqui..." type="number" name="" id="iptResposta2">
+                <div id="divPontosFeitos"></div>
+            </div>
+            <div class="quest-input">
+                <span>Quantos pontos vocês sofreram?</span>
+                <input placeholder="Insira aqui..." type="number" name="" id="iptResposta3">
+                <div id="divPontosSofridos"></div>
+            </div>
+            <div class="quest-input">
+                <span>Quantos pontos <b>você</b> fez?</span>
+                <input placeholder="Insira aqui..." type="number" name="" id="iptResposta4">
+                <div id="divPontosProprios"></div>
+            </div>
+            <button onclick="validar()">Verificar estatisticas!</button>
+            <div id="mensagem_erro"></div>
+        </div>
+
+    </div>
+
+      <div class="footer">
+    <div class="container">
+      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
+      <span class="version">v1.0.0</span>
+    </div>
+  </div>
 <script>
     let axData = 0;
     let axSet = 0;

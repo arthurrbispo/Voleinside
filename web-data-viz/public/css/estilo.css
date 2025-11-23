@@ -224,40 +224,82 @@ body {
   flex-direction: column;
 }
 
-/* .formulario span {
-  font-size: 15px;
-  font-weight: 500;
-} */
 
+.questionario {
+  display: flex;
+  justify-content: center;
+  padding: 3% 5%;
+  background-color: #F2E9E4;
+}
 
-.formulario input {
+.quest-inputs {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.quest-title{
+  color: #0B1E3F;
+  font-size: 120%;
+  font-weight: 600;
+}
+
+.quest-title h2 span {
+  font-weight: 800;
+  color: #FF5500;
+}
+
+.quest-inputs input {
   border: none;
   border-bottom: 3px solid #0B1E3F;
   outline: none;
   transition: 0.1s;
-  text-align: start;
   margin: 0;
   background-color: #F2E9E4;
   border-radius: 0px;
 }
 
 
-.formulario input::placeholder {
+.questionario input::placeholder {
   color: #0B1E3F;
   opacity: 0.5;
   font-size: 14px;
   text-align: left;
   padding: 0px;
+  text-align: center;
 }
 
-.formulario select {
-  border: 2px non e #FF5500;
-  background-color: white;
-  color: gray;
+.questionario select {
+  border: none;
+  border-bottom: 3px solid #0B1E3F;
+  background-color: #F2E9E4;
+  color: #0B1E3F;
   height: 36px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0px;
   margin: 0;
+}
+
+.questionario button {
+  cursor: pointer;
+  font-family: "archivo", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 22px;
+  color: #fff;
+  background-color: #FF5500;
+  width: 350px;
+  height: 40px;
+  align-self: center;
+  margin-top: 20px;
+  transition: 0.5s;
+}
+
+.questionario button:hover {
+  background-color: #ff7232;
 }
 
 .campo {
