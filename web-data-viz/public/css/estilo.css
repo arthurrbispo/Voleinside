@@ -81,7 +81,7 @@ body {
   height: var(--tamanho-banner);
   color: #F2E9E4;
   background-image: url('../assets/imgs/voleinside/background.png');
-  background-size: cover;
+  background-size:98%;
 }
 
 .banner .container {
@@ -92,6 +92,7 @@ body {
 }
 
 .banner .container p {
+  background-color: #F2E9E4;
   width: 50%;
   margin: 0;
   padding: 3px;
@@ -105,46 +106,44 @@ body {
 /* SOBRE */
 
 .social {
-  background-color: #F2E9E4;
+  width: 100%;
+  padding: 40px 0;
 }
 
-.social .container {
-  justify-content: center;
+
+.sobremim-title p {
+  color: #0B1E3F;
+    font-size: 45px;
+  font-weight: 600;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .boxes {
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.box {
-  background-color: #0B1E3F;
-  border-radius: 10px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 15px;
-  height: 450px;
+  border-radius: 10px;
 }
-
 
 .box img {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   border-radius: 10px;
-  transition: 3s;
   width: 360px;
   height: 420px;
   object-fit: cover;
-  transition: 3s;
 }
 
-.box .img .text {
-  color: #F2E9E4;
+.descricao {
+  margin-top: 30px;
+  text-align: center;
   font-size: 20px;
+  color: #0B1E3F;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
 }
-
 
 .social .container .boxes {
   justify-content: space-between;
@@ -163,7 +162,6 @@ body {
 
 
 .footer {
-  background-color: transparent;
   height: 100px;
   color: #0B1E3F;
   display: flex;
@@ -178,6 +176,7 @@ body {
 
 .footer .container .version {
   font-size: 12px;
+  text-align: end;
 }
 
  /* LOGIN */
@@ -318,6 +317,26 @@ body {
   flex-direction: column;
 }
 
+input {
+  background-color: #F2E9E4;
+  border: none;
+  border-bottom: 2px solid #0B1E3F;
+  margin: 0;
+  color: #0B1E3F;
+  border-radius: 0;
+  font-size: 20px;
+  text-align:center;
+}
+
+input::placeholder {
+  color: #0B1E3F;
+  opacity: 0.5;
+  font-size: 14px;
+  text-align:center;
+
+}
+
+
 
 .btn {
   font-family: "archivo", sans-serif;
@@ -357,7 +376,7 @@ body {
 
 .quest-title {
   color: #0B1E3F;
-  font-size: 120%;
+  font-size: 27px;
   font-weight: 600;
 }
 
