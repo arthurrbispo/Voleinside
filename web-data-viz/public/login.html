@@ -19,27 +19,29 @@
 
     <!--Header-->
 
-    <div class="header">
-        <div class="container">
-            <a href="index.html"><img src="./assets/imgs/voleinside/logo-laranja-azul-title.png" class="titulo">
-            </a>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="index.html #sobremim">Sobre mim</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
+      <div class="header">
+    <div class="container">
+      <img src="./assets/imgs/voleinside/logo-laranja-azul-title.png" class="titulo">
+      <ul class="navbar">
+        <li>
+          <a href="index.html">Inicial</a>
+        </li>
+        <li>
+          <a href="index.html#sobremim">Sobre mim</a>
+        </li>
+        <li>
+          <a href="index.html#ods">ODS</a>
+        </li>
+        <li>|</li>
+        <li class="agora">
+          <a href="#">Login</a>
+        </li>
+        <li>
+          <a href="cadastro.html">Cadastre-se</a>
+        </li>
+      </ul>
     </div>
+  </div>
 
 
     <div class="login">
@@ -88,7 +90,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Preencha os campos em branco";
             return false;
         }
         else {

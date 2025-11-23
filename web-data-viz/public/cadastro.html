@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Vôleinside | Cadastro</title>
+  <title>Vôleinside | Cadastre-se</title>
 
   <script src="./js/sessao.js"></script>
 
@@ -19,20 +19,23 @@
   <!--header inicio-->
   <div class="header">
     <div class="container">
-      <a href="index.html"><img src="./assets/imgs/voleinside/logo-laranja-azul-title.png" class="titulo"> </a>
+      <img src="./assets/imgs/voleinside/logo-laranja-azul-title.png" class="titulo">
       <ul class="navbar">
         <li>
           <a href="index.html">Inicial</a>
         </li>
         <li>
-          <a href="index.html">Sobre mim</a>
+          <a href="index.html#sobremim">Sobre mim</a>
+        </li>
+        <li>
+          <a href="index.html#ods">ODS</a>
         </li>
         <li>|</li>
         <li>
           <a href="login.html">Login</a>
         </li>
         <li class="agora">
-          <a href="#">Cadastro</a>
+          <a href="#">Cadastre-se</a>
         </li>
       </ul>
     </div>
@@ -49,10 +52,6 @@
       <div class="card card-cadastro">
         <h2>Seja bem-vindo!</h2>
         <div class="formulario"><br>
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
           <div class="campo">
 
             <input id="nome_input" type="text" placeholder="NOME" />
@@ -71,7 +70,7 @@
           </div>
 
           <br>
-          <div class="confirma">Já é um usuário? <a href="login.html"> Clique aqui!</a></div>
+          <div class="confirma">Já é um usuário? <a href="login.html">  Clique aqui!</a></div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
         <div id="div_aguardar" class="loading-div">
@@ -108,7 +107,7 @@
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "Preencha os campos em branco";
 
       finalizarAguardar();
       return false;

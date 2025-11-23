@@ -12,35 +12,37 @@
 
 
 <body>
-    <div class="header">
-        <div class="container">
-            <a href="index.html"><img src="./assets/imgs/voleinside/logo-laranja-azul-title.png" class="titulo">
-            </a>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="index.html #sobremim">Sobre mim</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
+  <div class="header">
+    <div class="container">
+      <img src="./assets/imgs/voleinside/logo-laranja-azul-title.png" class="titulo">
+      <ul class="navbar">
+        <li>
+          <a href="index.html">Inicial</a>
+        </li>
+        <li>
+          <a href="index.html#sobremim">Sobre mim</a>
+        </li>
+        <li>
+          <a href="index.html#ods">ODS</a>
+        </li>
+        <li>|</li>
+        <li>
+          <a href="login.html">Login</a>
+        </li>
+        <li>
+          <a href="cadastro.html">Cadastre-se</a>
+        </li>
+      </ul>
     </div>
+  </div>
 
     <div class="questionario">
         <div class="quest-inputs">
             <div class="quest-title">
-                <h2>Preencha os campos e <span>descubre suas estatisticas</span>!</h2>
+                <h2>Preencha os campos e <span>descubra suas estatísticas</span>!</h2>
             </div>
             <div class="quest-input">
-                <span>Que dia foi o jogo?</span>
+                <span>Quando foi o jogo?</span>
                 <input type="date" name="" id="iptResposta1">
                 <div class="quest-erro" id="divData"></div>
             </div>
@@ -55,7 +57,7 @@
                 <div class="quest-erro" id="divSet"></div>
             </div>
             <div class="quest-input">
-                <span>Quantos pontos sua dupla fez?</span>
+                <span>Quantos pontos você e sua dupla fizeram?</span>
                 <input placeholder="Insira aqui..." type="number" name="" id="iptResposta2">
                 <div class="quest-erro" id="divPontosFeitos"></div>
             </div>
@@ -69,7 +71,7 @@
                 <input placeholder="Insira aqui..." type="number" name="" id="iptResposta4">
                 <div class="quest-erro" id="divPontosProprios"></div>
             </div>
-            <button onclick="validar()">Verificar estatisticas!</button>
+            <button onclick="validar()">Verificar estatísticas!</button>
             <div id="mensagem_erro"></div>
         </div>
 
