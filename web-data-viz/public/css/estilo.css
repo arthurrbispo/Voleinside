@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
 
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   margin: 0;
@@ -160,6 +157,45 @@ body {
   align-items: center;
 }
 
+/* ODS */
+
+.ods-box {
+  display: flex;
+  justify-content:end;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  max-height: 400px;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.ods-title p {
+  text-align: center;
+  color: #0B1E3F;
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.ods-img {
+  width: 350px;
+}
+
+.ods-img img {
+  width: 350px;
+  height: 100%;
+  border-radius: 10px;
+}
+.ods-text span {
+  font-size: 25px;
+  color: #0B1E3F;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+}
 
 .footer {
   height: 100px;
