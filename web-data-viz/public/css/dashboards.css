@@ -264,6 +264,7 @@ canvas {
   left: 25%;
   height: 100vh;
   overflow: auto;
+  padding: 20px;
 }
 
 
@@ -341,4 +342,76 @@ canvas {
 
 .btn-logout:hover {
   background-color: #ff7232;
+}
+
+
+.kpi {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-right: 30px;
+  gap: 20px;
+}
+
+.kpi-box {
+  flex: 1;
+  background-color: #0B1E3F;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.kpi-value {
+  font-size: 30px;
+  font-weight: 600;
+  color: #fff;
+  margin: 10px 0;
+}
+
+.kpi-text {
+  color: #fff;
+  font-size: 20px;
+}
+
+.charts {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+
+}
+
+.chart {
+  background-color: #F2E9E4;
+  margin-right: 30px;
+  border-radius: 10px;
+  padding: 20px;
+  width: auto;
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.chart-title {
+  font-size: 20px;
+  background-color: #0B1E3F;
+  color: #fff;
+  margin-bottom: 15px;
+  text-align: center;
+  border-radius: 10px;
+  align-content: center;
+  height: 10%;
+  width: 100%;
+}
+
+.chart-pontos {
+  height: 250px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0a0;
+  width: 100% !important;
+  height: 100% !important;
 }

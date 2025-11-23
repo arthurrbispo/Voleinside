@@ -51,23 +51,46 @@
 
         </div>
 
+        
         <div class="dash">
-            <div id="alerta">
+            <div class="kpi">
+                <div class="kpi-box">
+                    <div class="kpi-text">Sua dupla</div>
+                    <div class="kpi-value">VENCEU</div>
+                    <div class="kpi-text">o jogo.</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-text">Aproveitamento da dupla</div>
+                    <div class="kpi-value">20%</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-text">Aproveitamento individual</div>
+                    <div class="kpi-value">50%</div>
+                </div>
+                <div class="kpi-box">
+                    <div class="kpi-text">Seus pontos na ultima partida</div>
+                    <div class="kpi-value">15</div>
+                </div>
             </div>
 
-            <div class="btns-dash" id="btnStatus">
-                <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+            <div class="charts">
+                <div class="chart">
+                    <div class="chart-title">Pontos feitos nas ultimas partidas</div>
+                    <div class="chart-pontos">
+                        <canvas id="graficoPontos"></canvas>
+                    </div>   
+                </div>
+            
+                <div class="chart">
+                    <div class="chart-title">Seu aproveitamento nas ultimas partidas(%)</div>
+                    <div class="chart-pontos">
+                        <canvas id="graficoAproveitamento"></canvas>
+                    </div>   
+                </div>
             </div>
         </div>
-<div class="chartPontos">    
-    <canvas id="graficoPontos"></canvas>
-</div>
-<div class="chartAproveit">    
-    <canvas id="graficoAproveitamento"></canvas>
-</div>
+    </div>
 
-    </div>
-    </div>
 
 
 </body>
@@ -121,6 +144,8 @@ function plotarGraficoPontos(resposta) {
 
     console.log('Iniciando plotagem do gráfico de PONTOS...');
 
+    resposta = [...resposta].reverse();
+
     let labels = [];
     let dadosPontos = [];
 
@@ -137,17 +162,29 @@ function plotarGraficoPontos(resposta) {
     const dados = {
         labels: labels,
         datasets: [{
-            label: 'Pontos feitos por você',
+            label:"",
             data: dadosPontos,
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
+            borderColor: '#ff7232',
+            backgroundColor: '#ff7232',
+            tension: 0.1,
         }]
     };
 
     const config = {
         type: 'line',
-        data: dados
+        data: dados,
+            options: {
+        scales: {
+            y: {
+                min: 0,
+                max: 22,
+                ticks: {
+                    stepSize: 1
+                }
+            }
+        }
+    }
     };
 
     new Chart(
@@ -159,6 +196,8 @@ function plotarGraficoPontos(resposta) {
 function plotarGraficoAproveitamento(resposta) {
 
     console.log('Iniciando plotagem do gráfico de APROVEITAMENTO...');
+
+    resposta = [...resposta].reverse();
 
     let labels = [];
     let dadosAproveitamento = [];
@@ -176,8 +215,10 @@ function plotarGraficoAproveitamento(resposta) {
     const dados = {
         labels: labels,
         datasets: [{
-            label: 'Aproveitamento (%)',
-            data: dadosAproveitamento
+            label: '',
+            data: dadosAproveitamento,
+            backgroundColor: '#FF5500',
+
         }]
     };
 
