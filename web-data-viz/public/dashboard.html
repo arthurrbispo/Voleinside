@@ -36,7 +36,7 @@
                 <h2>Olá, <span id="b_usuario"></span>!</h2>
             </div> <br><br>
             <div class="text-nav">
-                <h2>Quer continuar vendo suas estatísticas?<br>                
+                <h2>Quer continuar vendo suas estatísticas?<br>
                 </h2>
                 <a href="./questionario.html">
                     <h3>Preencher questionário</h3>
@@ -51,7 +51,7 @@
 
         </div>
 
-        
+
         <div class="dash">
             <div class="kpi">
                 <div class="kpi-box">
@@ -78,14 +78,14 @@
                     <div class="chart-title">Pontos feitos nas ultimas partidas</div>
                     <div class="chart-pontos">
                         <canvas id="graficoPontos"></canvas>
-                    </div>   
+                    </div>
                 </div>
-            
+
                 <div class="chart">
                     <div class="chart-title">Seu aproveitamento nas últimas partidas(%)</div>
                     <div class="chart-pontos">
                         <canvas id="graficoAproveitamento"></canvas>
-                    </div>   
+                    </div>
                 </div>
             </div>
         </div>
@@ -142,111 +142,114 @@
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
 
-function plotarKPI(resposta) {
-    aproveitDupla.innerHTML = `${resposta[0].aproveitTotal}%`;
-    aproveitSolo.innerHTML = `${resposta[0].aprovetProprio}%`;
-    pontosSolo.innerHTML = `${resposta[0].pontosProprios}`;
+    function plotarKPI(resposta) {
+        aproveitDupla.innerHTML = `${resposta[0].aproveitTotal}%`;
+        aproveitSolo.innerHTML = `${resposta[0].aprovetProprio}%`;
+        pontosSolo.innerHTML = `${resposta[0].pontosProprios}`;
 
-    if ((resposta[0].pontosDupla == 21 && (resposta[0].setJogo == 1 || resposta[0].setJogo == 2)) || (resposta[0].setJogo == 3 && resposta[0].pontosDupla > resposta[0].pontosSofridos)) {
-        statusJogo.innerHTML = `<span style="color: green;">VENCEU</span>`
-    } else {
-        statusJogo.innerHTML = `<span style="color: red;">PERDEU</span>`
-    }
-}
-
-function plotarGraficoPontos(resposta) {
-
-
-    console.log('Iniciando plotagem do gráfico de PONTOS...');
-
-    resposta = [...resposta].reverse();
-
-    let labels = [];
-    let dadosPontos = [];
-
-    resposta.forEach(registro => {
-        labels.push(registro.momento_grafico || `Set ${registro.setJogo}`);
-        dadosPontos.push(registro.pontosProprios);
-    });
-
-    console.log('----------------------------------------------');
-    console.log('Dados do gráfico de pontos:');
-    console.log(labels, dadosPontos);
-    console.log('----------------------------------------------');
-
-    const dados = {
-        labels: labels,
-        datasets: [{
-            label:"",
-            data: dadosPontos,
-            fill: false,
-            borderColor: '#ff7232',
-            backgroundColor: '#ff7232',
-            tension: 0.1,
-        }]
-    };
-
-    const config = {
-        type: 'line',
-        data: dados,
-            options: {
-        scales: {
-            y: {
-                min: 0,
-                max: 22,
-                ticks: {
-                    stepSize: 1
-                }
-            }
+        if ((resposta[0].pontosDupla == 21 && (resposta[0].setJogo == 1 || resposta[0].setJogo == 2)) || (resposta[0].setJogo == 3 && resposta[0].pontosDupla > resposta[0].pontosSofridos)) {
+            statusJogo.innerHTML = `<span style="color: green;">VENCEU</span>`
+        } else {
+            statusJogo.innerHTML = `<span style="color: red;">PERDEU</span>`
         }
     }
-    };
 
-    new Chart(
-        document.getElementById('graficoPontos'),
-        config
-    );
-}
+    function plotarGraficoPontos(resposta) {
 
-function plotarGraficoAproveitamento(resposta) {
 
-    console.log('Iniciando plotagem do gráfico de APROVEITAMENTO...');
+        console.log('Iniciando plotagem do gráfico de PONTOS...');
 
-    resposta = [...resposta].reverse();
+        let labels = [];
+        let dadosPontos = [];
 
-    let labels = [];
-    let dadosAproveitamento = [];
+        resposta = [...resposta].reverse();
 
-    resposta.forEach(registro => {
-        labels.push(registro.momento_grafico || `Set ${registro.setJogo}`);
-        dadosAproveitamento.push(registro.aprovetProprio);
-    });
 
-    console.log('----------------------------------------------');
-    console.log('Dados do gráfico de aproveitamento:');
-    console.log(labels, dadosAproveitamento);
-    console.log('----------------------------------------------');
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento_grafico || `Set ${registro.setJogo}`);
+            dadosPontos.push(registro.pontosProprios);
+        }
 
-    const dados = {
-        labels: labels,
-        datasets: [{
-            label: '',
-            data: dadosAproveitamento,
-            backgroundColor: '#FF5500',
+        console.log('----------------------------------------------');
+        console.log('Dados do gráfico de pontos:');
+        console.log(labels, dadosPontos);
+        console.log('----------------------------------------------');
 
-        }]
-    };
+        const dados = {
+            labels: labels,
+            datasets: [{
+                label: "",
+                data: dadosPontos,
+                fill: false,
+                borderColor: '#ff7232',
+                backgroundColor: '#ff7232',
+                tension: 0.1,
+            }]
+        };
 
-    const config = {
-        type: 'bar',
-        data: dados
-    };
+        const config = {
+            type: 'line',
+            data: dados,
+            options: {
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 22,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        };
 
-    new Chart(
-        document.getElementById('graficoAproveitamento'),
-        config
-    );
-}
+        new Chart(
+            document.getElementById('graficoPontos'),
+            config
+        );
+    }
+
+    function plotarGraficoAproveitamento(resposta) {
+
+        console.log('Iniciando plotagem do gráfico de APROVEITAMENTO...');
+
+        let labels = [];
+        let dadosAproveitamento = [];
+
+        resposta = [...resposta].reverse();
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.momento_grafico || `Set ${registro.setJogo}`);
+            dadosAproveitamento.push(registro.aprovetProprio);
+        }
+
+        console.log('----------------------------------------------');
+        console.log('Dados do gráfico de aproveitamento:');
+        console.log(labels, dadosAproveitamento);
+        console.log('----------------------------------------------');
+
+        const dados = {
+            labels: labels,
+            datasets: [{
+                label: '',
+                data: dadosAproveitamento,
+                backgroundColor: '#FF5500',
+
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: dados
+        };
+
+        new Chart(
+            document.getElementById('graficoAproveitamento'),
+            config
+        );
+    }
 
 
 
