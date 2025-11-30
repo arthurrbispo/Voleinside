@@ -95,9 +95,9 @@
     function validar() {
         axData = iptResposta1.value;
         axSet = slctSet.value;
-        axPontosFeitos = iptResposta2.value;
-        axPontosSofridos = iptResposta3.value;
-        axPontosProprios = iptResposta4.value;
+        axPontosFeitos = Number(iptResposta2.value);
+        axPontosSofridos = Number(iptResposta3.value);
+        axPontosProprios = Number(iptResposta4.value);
         let validar = false;
 
         if (axData == "") {
@@ -112,7 +112,7 @@
         } if (iptResposta3.value == "" || axPontosSofridos < 0 || axPontosSofridos > 50) {
             divPontosSofridos.innerHTML = "Insira pontos válidos";
             validar = true;
-        } if (iptResposta3.value == "" || axPontosProprios < 0 || axPontosProprios > 50 || axPontosProprios > axPontosFeitos) {
+        } if (iptResposta4.value == "" || axPontosProprios < 0 || axPontosProprios > 50 || (axPontosProprios > axPontosFeitos)) {
             divPontosProprios.innerHTML = "Insira pontos válidos";
             validar = true;
         } if (!validar) {
