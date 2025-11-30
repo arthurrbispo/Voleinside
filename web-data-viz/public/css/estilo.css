@@ -14,7 +14,7 @@ body {
 
 
 :root {
-  --tamanho-header: 80px;
+  --tamanho-header: 100px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
@@ -53,7 +53,7 @@ body {
 }
 
 .navbar {
-  width: 300px;
+  width: 350px;
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -84,14 +84,14 @@ body {
 .banner .container {
   justify-content: start;
   align-items: center;
+  width: 800px;
   height: 100%;
   color: #0B1E3F;
 }
 
 .banner .container p {
-  background-color: #F2E9E4;
   width: 50%;
-  margin: 0;
+  margin: -150px;
   padding: 3px;
   font-size: 36px;
 }
